@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="About Me — a personal page showcasing my bio, skills, hobbies, and contact information.">
+  <title>About Me</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="hero">
+      <h1 class="hero__name">Clyde Domingo</h1>
+      <p class="hero__tagline">Student · Developer</p>
+    </header>
+
+    <!-- ===== ABOUT / BIO ===== -->
+    <section class="section-card" id="about">
+      <h2 class="section-card__title">About Me</h2>
+      <div class="section-card__body">
+        <p>
+          Hi there! I'm a passionate individual who loves learning new things and taking on creative challenges.
+          I enjoy building things with code, exploring design, and connecting with people who share a curiosity
+          for how the world works.
+        </p>
+        <hr class="divider">
+        <p>
+          When I'm not at my desk, you'll find me outdoors, reading a good book, or working out from time to time.
+          I believe in continuous growth and bringing positive energy to everything I do.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section-card" id="skills">
+      <h2 class="section-card__title">Skills</h2>
+      <ul class="bullet-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Photoshop</li>
+        <li>Figma</li>
+      </ul>
+    </section>
+
+    <!-- ===== HOBBIES ===== -->
+    <section class="section-card" id="hobbies">
+      <h2 class="section-card__title">Hobbies & Interests</h2>
+      <ul class="bullet-list">
+        <li>Reading</li>
+        <li>Gaming</li>
+        <li>Music</li>
+        <li>Fitness</li>
+      </ul>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section-card" id="contact">
+      <h2 class="section-card__title">Contact</h2>
+      <ul class="contact-list">
+        <li class="contact-list__item">
+          <a href="h.domingo.541253@umindanao.edu.ph">My Email</a>
+        </li>
+        <li class="contact-list__item">
+          <span>+63 912 345 6789</span>
+        </li>
+        <li class="contact-list__item">
+          <a href="https://github.com/hnnzy" target="_blank" rel="noopener noreferrer">github.com/hnnzy</a>
+        </li>
+        <li class="contact-list__item">
+          <span>Davao, Philippines</span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    &copy; 2026 Clyde Domingo. All rights reserved.
+  </footer>
+
+  <!-- Skill bar animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const skills = document.querySelectorAll('.skill-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const level = el.getAttribute('data-level');
+            const fill = el.querySelector('.skill-item__bar-fill');
+            fill.style.width = level + '%';
+            el.classList.add('visible');
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      skills.forEach(skill => observer.observe(skill));
+    });
+  </script>
+
+</body>
+
+</html>
